@@ -21,3 +21,5 @@
 .externalNativeBuild
 /.idea
 .idea/navEditor.xml
+/.idea
+.idea/navEditor.xml
