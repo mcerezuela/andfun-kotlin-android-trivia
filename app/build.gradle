@@ -58,9 +58,6 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    // Kotlin
-    implementation libs.kotlin.stdlib.jdk7
-
     // Constraint Layout
     implementation libs.androidx.constraintlayout
 

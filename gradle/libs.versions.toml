@@ -9,7 +9,6 @@ hamcrestVersion = "1.3"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-junitJupiter = "5.8.1"
 kotlinStdlibJdk7Version = "1.9.0"
 materialVersion = "1.4.0"
 mockito = "4.0.0"
@@ -25,6 +24,7 @@ androidx-fragment-testing = { module = "androidx.fragment:fragment-testing", ver
 androidx-junit-ktx = { module = "androidx.test.ext:junit-ktx", version.ref = "androidXTestExtKotlinRunnerVersion" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationRuntimeKtxVersion" }
 androidx-navigation-runtime-ktx = { module = "androidx.navigation:navigation-runtime-ktx", version.ref = "navigationRuntimeKtxVersion" }
+androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationRuntimeKtxVersion" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationRuntimeKtxVersion" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtxVersion" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
@@ -32,9 +32,8 @@ hamcrest-all = { module = "org.hamcrest:hamcrest-all", version.ref = "hamcrestVe
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
-kotlin-stdlib-jdk7 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk7", version.ref = "kotlinStdlibJdk7Version" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinStdlibJdk7Version" }
 material = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockito" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
