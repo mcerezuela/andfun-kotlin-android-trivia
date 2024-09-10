@@ -4,6 +4,7 @@ androidXTestExtKotlinRunnerVersion = "1.1.3"
 archTestingVersion = "2.2.0"
 constraintlayoutVersion = "2.0.1"
 coreKtxVersion = "1.2.0"
+gradleVersion = "8.5.2"
 hamcrestVersion = "1.3"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -26,6 +27,7 @@ androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fr
 androidx-navigation-runtime-ktx = { module = "androidx.navigation:navigation-runtime-ktx", version.ref = "navigationRuntimeKtxVersion" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationRuntimeKtxVersion" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtxVersion" }
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
 hamcrest-all = { module = "org.hamcrest:hamcrest-all", version.ref = "hamcrestVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
