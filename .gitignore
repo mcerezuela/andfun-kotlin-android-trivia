@@ -20,3 +20,4 @@
 /captures
 .externalNativeBuild
 /.idea
+.idea/navEditor.xml
