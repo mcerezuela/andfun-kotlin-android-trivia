@@ -6,6 +6,7 @@ import androidx.test.filters.LargeTest
 import com.example.android.navigation.pageobjects.AboutScreen
 import com.example.android.navigation.pageobjects.DrawerScreen
 import com.example.android.navigation.pageobjects.GameScreen
+import com.example.android.navigation.pageobjects.GameWonScreen
 import com.example.android.navigation.pageobjects.PlayScreen
 import com.example.android.navigation.pageobjects.RulesScreen
 import org.hamcrest.MatcherAssert.assertThat
@@ -21,6 +22,7 @@ class MainActivityTest : TestBase() {
     private val aboutScreen = AboutScreen()
     private val rulesScreen = RulesScreen()
     private val gameScreen = GameScreen()
+    private val gameWonScreen = GameWonScreen()
 
     @Test
     fun quizTitleIsReadyTest() {
@@ -93,7 +95,9 @@ class MainActivityTest : TestBase() {
             `is`(true)
         )
         rulesScreen.clickOnNavigateUpButton()
-        assertThat("Play button should be displayed", playScreen.isViewDisplayed(), `is`(true))
+        assertThat("Play button should be displayed",
+            playScreen.isViewDisplayed(),
+            `is`(true))
 
     }
 
@@ -106,6 +110,9 @@ class MainActivityTest : TestBase() {
         gameScreen.selectCorrectAnswer1()
         gameScreen.selectCorrectAnswer2()
         gameScreen.selectCorrectAnswer3()
+        assertThat("You win Image should be displayed",
+            gameWonScreen.isyouWinImageDisplayed(),
+            `is`(true))
     }
 
 }
