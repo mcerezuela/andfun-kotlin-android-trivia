@@ -2,21 +2,25 @@ package com.example.android.navigation.tests
 
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.filters.SmallTest
+import androidx.test.filters.LargeTest
 import com.example.android.navigation.pageobjects.AboutScreen
 import com.example.android.navigation.pageobjects.DrawerScreen
+import com.example.android.navigation.pageobjects.GameScreen
 import com.example.android.navigation.pageobjects.PlayScreen
+import com.example.android.navigation.pageobjects.RulesScreen
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-@SmallTest
+@LargeTest
 class MainActivityTest : TestBase() {
     private val playScreen = PlayScreen()
     private val drawerScreen = DrawerScreen()
     private val aboutScreen = AboutScreen()
+    private val rulesScreen = RulesScreen()
+    private val gameScreen = GameScreen()
 
     @Test
     fun quizTitleIsReadyTest() {
@@ -42,7 +46,7 @@ class MainActivityTest : TestBase() {
     }
 
     @Test
-    fun drawerAboutNAvigateBackToPLayTest() {
+    fun drawerAboutNavigateBackToPLayTest() {
         playScreen.clickOnNavigationDrawerButton()
         drawerScreen.clickOnAboutButton()
         assertThat(
@@ -67,6 +71,41 @@ class MainActivityTest : TestBase() {
         )
         aboutScreen.clickOnNavigateUpButton()
         assertThat("Play button should be displayed", playScreen.isViewDisplayed(), `is`(true))
+    }
+
+    @Test
+    fun drawerRulesNavigateBackToPLayTest() {
+        playScreen.clickOnNavigationDrawerButton()
+        drawerScreen.clickOnRulesButton()
+        assertThat(
+            "Rules Image should be Displayed",
+            rulesScreen.isRulesImageDisplayed(),
+            `is`(true)
+        )
+        assertThat(
+            "Rules Text should be Displayed",
+            rulesScreen.isRulesTextDisplayed(),
+            `is`(true)
+        )
+        assertThat(
+            "Rule Title return to main Displayed",
+            rulesScreen.isReturnToPageDisplayed(),
+            `is`(true)
+        )
+        rulesScreen.clickOnNavigateUpButton()
+        assertThat("Play button should be displayed", playScreen.isViewDisplayed(), `is`(true))
+
+    }
+
+    @Test
+    fun completePlayTest() {
+        playScreen.clickOnStartQuiz()
+        assertThat("Game image should be displayed",
+            gameScreen.isQuestionImageDisplayed(),
+            `is`(true))
+        gameScreen.selectCorrectAnswer1()
+        gameScreen.selectCorrectAnswer2()
+        gameScreen.selectCorrectAnswer3()
     }
 
 }
