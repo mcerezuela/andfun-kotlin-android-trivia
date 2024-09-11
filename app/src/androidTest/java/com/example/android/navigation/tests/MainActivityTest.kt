@@ -5,6 +5,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.example.android.navigation.pageobjects.AboutScreen
 import com.example.android.navigation.pageobjects.DrawerScreen
+import com.example.android.navigation.pageobjects.GameOverScreen
 import com.example.android.navigation.pageobjects.GameScreen
 import com.example.android.navigation.pageobjects.GameWonScreen
 import com.example.android.navigation.pageobjects.PlayScreen
@@ -23,6 +24,7 @@ class MainActivityTest : TestBase() {
     private val rulesScreen = RulesScreen()
     private val gameScreen = GameScreen()
     private val gameWonScreen = GameWonScreen()
+    private val gameOverScreen = GameOverScreen()
 
     @Test
     fun quizTitleIsReadyTest() {
@@ -95,24 +97,49 @@ class MainActivityTest : TestBase() {
             `is`(true)
         )
         rulesScreen.clickOnNavigateUpButton()
-        assertThat("Play button should be displayed",
+        assertThat(
+            "Play button should be displayed",
             playScreen.isViewDisplayed(),
-            `is`(true))
+            `is`(true)
+        )
 
     }
 
     @Test
     fun completePlayTest() {
         playScreen.clickOnStartQuiz()
-        assertThat("Game image should be displayed",
+        assertThat(
+            "Game image should be displayed",
             gameScreen.isQuestionImageDisplayed(),
-            `is`(true))
+            `is`(true)
+        )
         gameScreen.selectCorrectAnswer1()
         gameScreen.selectCorrectAnswer2()
         gameScreen.selectCorrectAnswer3()
-        assertThat("You win Image should be displayed",
+        assertThat(
+            "You win Image should be displayed",
             gameWonScreen.isyouWinImageDisplayed(),
-            `is`(true))
+            `is`(true)
+        )
+    }
+
+    @Test
+    fun incorrectAnswerThenTryAgainTest() {
+        playScreen.clickOnStartQuiz()
+        gameScreen.selectCorrectAnswer1()
+        gameScreen.selectCorrectAnswer2()
+        gameScreen.selectInCorrectAnswer()
+        assertThat(
+            "Game Over Image should be displayed",
+            gameOverScreen.isGameOverImageDisplayed(),
+            `is`(true)
+        )
+        gameOverScreen.clickOnTryAgainButton()
+        assertThat(
+            "Game image should be displayed",
+            gameScreen.isQuestionImageDisplayed(),
+            `is`(true)
+        )
     }
 
 }
