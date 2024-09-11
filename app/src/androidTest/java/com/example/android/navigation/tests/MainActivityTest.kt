@@ -50,7 +50,7 @@ class MainActivityTest : TestBase() {
     }
 
     @Test
-    fun drawerAboutNavigateBackToPLayTest() {
+    fun drawerAboutNavigateBackToPlayTest() {
         playScreen.clickOnNavigationDrawerButton()
         drawerScreen.clickOnAboutButton()
         assertThat(
@@ -78,7 +78,7 @@ class MainActivityTest : TestBase() {
     }
 
     @Test
-    fun drawerRulesNavigateBackToPLayTest() {
+    fun drawerRulesNavigateBackToPlayTest() {
         playScreen.clickOnNavigationDrawerButton()
         drawerScreen.clickOnRulesButton()
         assertThat(
